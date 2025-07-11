@@ -28,23 +28,44 @@ public class LandingPage extends JFrame {
         BackgroundPanel backgroundPanel = new BackgroundPanel("src/main/resources/MainPageImage.png");
         backgroundPanel.setLayout(null);
 
-        // Buttons
-        JButton btnAdd = new JButton("Add Feedback");
-        JButton btnEdit = new JButton("Edit Selected");
-        JButton btnDelete = new JButton("Delete Selected");
+        // Styled Buttons
+        JButton btnAdd = new JButton("➕ Add Feedback");
+        btnAdd.setBounds(50, 30, 150, 35);
+        btnAdd.setBackground(new Color(34, 139, 34)); // Forest Green
+        btnAdd.setForeground(Color.WHITE);
+        btnAdd.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        btnAdd.setFocusPainted(false);
+        btnAdd.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnAdd.setBorder(BorderFactory.createLineBorder(new Color(0, 100, 0), 2, true));
 
-        btnAdd.setBounds(50, 30, 150, 30);
-        btnEdit.setBounds(220, 30, 150, 30);
-        btnDelete.setBounds(390, 30, 170, 30);
+        JButton btnEdit = new JButton("✏️ Edit Selected");
+        btnEdit.setBounds(220, 30, 150, 35);
+        btnEdit.setBackground(new Color(218, 165, 32)); // Goldenrod
+        btnEdit.setForeground(Color.BLACK);
+        btnEdit.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        btnEdit.setFocusPainted(false);
+        btnEdit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnEdit.setBorder(BorderFactory.createLineBorder(new Color(184, 134, 11), 2, true));
+
+        JButton btnDelete = new JButton("🗑️ Delete Selected");
+        btnDelete.setBounds(390, 30, 170, 35);
+        btnDelete.setBackground(new Color(178, 34, 34)); // Firebrick
+        btnDelete.setForeground(Color.WHITE);
+        btnDelete.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        btnDelete.setFocusPainted(false);
+        btnDelete.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnDelete.setBorder(BorderFactory.createLineBorder(new Color(139, 0, 0), 2, true));
 
         // Button actions
         btnAdd.addActionListener(e -> showAddFeedbackForm());
         btnEdit.addActionListener(e -> showEditFeedbackForm());
         btnDelete.addActionListener(e -> deleteSelectedFeedback());
 
+        // Add to panel
         backgroundPanel.add(btnAdd);
         backgroundPanel.add(btnEdit);
         backgroundPanel.add(btnDelete);
+
 
         // Table
         tableModel = new DefaultTableModel(new String[]{"ID", "Message", "Submitted At"}, 0);
