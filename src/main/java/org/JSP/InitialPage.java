@@ -68,6 +68,34 @@ public class InitialPage extends JFrame implements ActionListener {
         // Add panel to frame
         setContentPane(backgroundPanel);
         setVisible(true);
+
+        // Positioning constants based on loginPanel location
+        int weatherWidth = 300;
+        int weatherHeight = 150;
+        int weatherX = size.width / 2 - weatherWidth / 2;
+        int weatherY = size.height / 2 - 75 - weatherHeight - 20; // 20px padding above login panel
+
+// 1. City dropdown
+        String[] cities = {"Kathmandu", "Pokhara", "Biratnagar", "Lalitpur", "Butwal"};
+        JComboBox<String> cityDropdown = new JComboBox<>(cities);
+        cityDropdown.setBounds(weatherX, weatherY, weatherWidth, 30);
+        backgroundPanel.add(cityDropdown);
+
+// 2. Weather panel
+        WeatherPanel weatherPanel = new WeatherPanel((String) cityDropdown.getSelectedItem());
+        weatherPanel.setBounds(weatherX, weatherY + 35, weatherWidth, 100); // Slightly below dropdown
+        backgroundPanel.add(weatherPanel);
+
+// 3. City change listener
+        cityDropdown.addActionListener(e -> {
+            backgroundPanel.remove(weatherPanel);
+            WeatherPanel newWeather = new WeatherPanel((String) cityDropdown.getSelectedItem());
+            newWeather.setBounds(weatherX, weatherY + 35, weatherWidth, 100);
+            backgroundPanel.add(newWeather);
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
+        });
+
     }
 
     @Override
