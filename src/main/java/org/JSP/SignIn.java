@@ -20,21 +20,42 @@ public class SignIn extends JFrame implements ActionListener {
         setTitle("Naagarik Feedback - Sign In");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Fullscreen
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(size);
 
-        // Background panel
         BackgroundPanel backgroundPanel = new BackgroundPanel("src/main/resources/Naagarik.png");
         backgroundPanel.setLayout(null);
 
-        // SignIn form panel
+        // ----------- Weather Section -------------
+        int weatherWidth = 320;
+        int weatherHeight = 140;
+        int weatherX = 30;
+        int weatherY = 30;
+
+        String[] cities = {"Sindhuli", "Kathmandu", "Pokhara", "Biratnagar", "Lalitpur", "Butwal"};
+        JComboBox<String> cityDropdown = new JComboBox<>(cities);
+        cityDropdown.setBounds(weatherX, weatherY, weatherWidth, 30);
+        backgroundPanel.add(cityDropdown);
+
+        WeatherPanel weatherPanel = new WeatherPanel((String) cityDropdown.getSelectedItem());
+        weatherPanel.setBounds(weatherX, weatherY + 35, weatherWidth, weatherHeight);
+        backgroundPanel.add(weatherPanel);
+
+        cityDropdown.addActionListener(e -> {
+            backgroundPanel.remove(weatherPanel);
+            WeatherPanel newWeather = new WeatherPanel((String) cityDropdown.getSelectedItem());
+            newWeather.setBounds(weatherX, weatherY + 35, weatherWidth, weatherHeight);
+            backgroundPanel.add(newWeather);
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
+        });
+
+        // ----------- Sign In Panel -------------
         JPanel formPanel = new JPanel();
         formPanel.setLayout(new GridBagLayout());
         formPanel.setBackground(new Color(255, 255, 255, 180));
         formPanel.setBounds(size.width / 2 - 200, size.height / 2 - 100, 400, 200);
 
-        // Layout config
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(8, 10, 8, 10);
         gbc.anchor = GridBagConstraints.WEST;
@@ -58,8 +79,7 @@ public class SignIn extends JFrame implements ActionListener {
         gbc.anchor = GridBagConstraints.CENTER;
         btnSignIn = new JButton("Sign In");
 
-        // Style like other buttons
-        btnSignIn.setBackground(new Color(30, 144, 255));  // Dodger Blue
+        btnSignIn.setBackground(new Color(30, 144, 255));
         btnSignIn.setForeground(Color.WHITE);
         btnSignIn.setFont(new Font("Segoe UI", Font.BOLD, 16));
         btnSignIn.setFocusPainted(false);
@@ -70,10 +90,7 @@ public class SignIn extends JFrame implements ActionListener {
         btnSignIn.addActionListener(this);
         formPanel.add(btnSignIn, gbc);
 
-        // Add form panel to background
         backgroundPanel.add(formPanel);
-
-        // Final setup
         setContentPane(backgroundPanel);
         setVisible(true);
     }
@@ -106,7 +123,7 @@ public class SignIn extends JFrame implements ActionListener {
         }
     }
 
-    // Background panel class
+    // Background Panel class
     class BackgroundPanel extends JPanel {
         private Image backgroundImage;
 

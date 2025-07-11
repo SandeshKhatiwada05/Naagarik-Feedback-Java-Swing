@@ -19,21 +19,42 @@ public class SignUp extends JFrame implements ActionListener {
         setTitle("Naagarik Feedback - Sign Up");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Fullscreen
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(size);
 
-        // Background panel (same as InitialPage)
         BackgroundPanel backgroundPanel = new BackgroundPanel("src/main/resources/Naagarik.png");
         backgroundPanel.setLayout(null);
 
-        // SignUp form panel (semi-transparent box)
+        // ---------- Weather Dropdown + Panel -------------
+        int weatherWidth = 320;
+        int weatherHeight = 140;
+        int weatherX = 30;
+        int weatherY = 30;
+
+        String[] cities = {"Sindhuli", "Kathmandu", "Pokhara", "Biratnagar", "Lalitpur", "Butwal"};
+        JComboBox<String> cityDropdown = new JComboBox<>(cities);
+        cityDropdown.setBounds(weatherX, weatherY, weatherWidth, 30);
+        backgroundPanel.add(cityDropdown);
+
+        WeatherPanel weatherPanel = new WeatherPanel((String) cityDropdown.getSelectedItem());
+        weatherPanel.setBounds(weatherX, weatherY + 35, weatherWidth, weatherHeight);
+        backgroundPanel.add(weatherPanel);
+
+        cityDropdown.addActionListener(e -> {
+            backgroundPanel.remove(weatherPanel);
+            WeatherPanel newWeather = new WeatherPanel((String) cityDropdown.getSelectedItem());
+            newWeather.setBounds(weatherX, weatherY + 35, weatherWidth, weatherHeight);
+            backgroundPanel.add(newWeather);
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
+        });
+
+        // ---------- Signup Form Panel ----------
         JPanel formPanel = new JPanel();
         formPanel.setLayout(new GridBagLayout());
         formPanel.setBackground(new Color(255, 255, 255, 180));
         formPanel.setBounds(size.width / 2 - 200, size.height / 2 - 175, 400, 350);
 
-        // GridBag layout for fields
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(8, 10, 8, 10);
         gbc.anchor = GridBagConstraints.WEST;
@@ -78,7 +99,6 @@ public class SignUp extends JFrame implements ActionListener {
         gbc.anchor = GridBagConstraints.CENTER;
         btnSignUp = new JButton("Sign Up");
 
-        // Style the Sign Up button similarly to InitialPage buttons
         btnSignUp.setBackground(new Color(34, 139, 34));  // Forest Green
         btnSignUp.setForeground(Color.WHITE);
         btnSignUp.setFont(new Font("Segoe UI", Font.BOLD, 16));
@@ -90,10 +110,8 @@ public class SignUp extends JFrame implements ActionListener {
         btnSignUp.addActionListener(this);
         formPanel.add(btnSignUp, gbc);
 
-        // Add form panel to background
         backgroundPanel.add(formPanel);
 
-        // Final setup
         setContentPane(backgroundPanel);
         setVisible(true);
     }
@@ -118,6 +136,7 @@ public class SignUp extends JFrame implements ActionListener {
                             "Account Created!\nRemember:\nName: " + txtName.getText() +
                                     "\nPassword: " + new String(txtPassword.getPassword()));
                     new InitialPage();
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Signup failed.");
                 }
@@ -129,7 +148,7 @@ public class SignUp extends JFrame implements ActionListener {
         }
     }
 
-    // Same BackgroundPanel class as InitialPage
+    // Reusable background image panel
     class BackgroundPanel extends JPanel {
         private Image backgroundImage;
 
