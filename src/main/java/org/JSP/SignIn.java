@@ -55,40 +55,54 @@ public class SignIn extends JFrame implements ActionListener {
         formPanel.setLayout(new GridBagLayout());
         formPanel.setBackground(new Color(255, 255, 255, 180));
         formPanel.setBounds(size.width / 2 - 200, size.height / 2 - 100, 400, 200);
+        formPanel.setLayout(null); // use null layout for precise control
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(8, 10, 8, 10);
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.gridx = 0; gbc.gridy = 0;
+        // Load and resize icon to 16x16
+        ImageIcon icon = new ImageIcon("src/main/resources/Close.png");
+        Image img = icon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(img);
 
-        nameLabel = new JLabel("Name:");
-        txtName = new JTextField(20);
-        formPanel.add(nameLabel, gbc);
-        gbc.gridx = 1;
-        formPanel.add(txtName, gbc);
+        // Create close button
+        JButton closeButton = new JButton(scaledIcon);
+        closeButton.setBounds(370, 8, 24, 24);
+        closeButton.setContentAreaFilled(false);
+        closeButton.setBorderPainted(false);
+        closeButton.setFocusPainted(false);
+        closeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        formPanel.add(closeButton);
 
-        gbc.gridx = 0; gbc.gridy++;
-        passwordLabel = new JLabel("Password:");
-        txtPassword = new JPasswordField(20);
-        formPanel.add(passwordLabel, gbc);
-        gbc.gridx = 1;
-        formPanel.add(txtPassword, gbc);
+        // Close action
+        closeButton.addActionListener(e -> dispose());
 
-        gbc.gridx = 0; gbc.gridy++;
-        gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
+
+        // Form layout (manual)
+        JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setBounds(30, 40, 80, 25);
+        formPanel.add(nameLabel);
+
+        txtName = new JTextField();
+        txtName.setBounds(120, 40, 220, 25);
+        formPanel.add(txtName);
+
+        JLabel passwordLabel = new JLabel("Password:");
+        passwordLabel.setBounds(30, 80, 80, 25);
+        formPanel.add(passwordLabel);
+
+        txtPassword = new JPasswordField();
+        txtPassword.setBounds(120, 80, 220, 25);
+        formPanel.add(txtPassword);
+
         btnSignIn = new JButton("Sign In");
-
+        btnSignIn.setBounds(130, 130, 140, 40);
         btnSignIn.setBackground(new Color(30, 144, 255));
         btnSignIn.setForeground(Color.WHITE);
         btnSignIn.setFont(new Font("Segoe UI", Font.BOLD, 16));
         btnSignIn.setFocusPainted(false);
         btnSignIn.setBorder(BorderFactory.createLineBorder(new Color(0, 120, 215), 2, true));
         btnSignIn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        btnSignIn.setPreferredSize(new Dimension(140, 40));
 
+        formPanel.add(btnSignIn);
         btnSignIn.addActionListener(this);
-        formPanel.add(btnSignIn, gbc);
 
         backgroundPanel.add(formPanel);
         setContentPane(backgroundPanel);
@@ -112,6 +126,7 @@ public class SignIn extends JFrame implements ActionListener {
 
                 if (resultSet.next()) {
                     new LandingPage(name);
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid name or password.");
                 }

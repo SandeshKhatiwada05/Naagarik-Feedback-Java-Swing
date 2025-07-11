@@ -25,7 +25,7 @@ public class SignUp extends JFrame implements ActionListener {
         BackgroundPanel backgroundPanel = new BackgroundPanel("src/main/resources/Naagarik.png");
         backgroundPanel.setLayout(null);
 
-        // ---------- Weather Dropdown + Panel -------------
+        // ---------- Weather Dropdown + Panel ----------
         int weatherWidth = 320;
         int weatherHeight = 140;
         int weatherX = 30;
@@ -51,50 +51,76 @@ public class SignUp extends JFrame implements ActionListener {
 
         // ---------- Signup Form Panel ----------
         JPanel formPanel = new JPanel();
-        formPanel.setLayout(new GridBagLayout());
+        formPanel.setLayout(null);
         formPanel.setBackground(new Color(255, 255, 255, 180));
         formPanel.setBounds(size.width / 2 - 200, size.height / 2 - 175, 400, 350);
+
+        // Close Button
+        ImageIcon icon = new ImageIcon("src/main/resources/Close.png");
+        Image img = icon.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(img);
+        JButton closeButton = new JButton(scaledIcon);
+        closeButton.setBounds(370, 8, 24, 24);
+        closeButton.setContentAreaFilled(false);
+        closeButton.setBorderPainted(false);
+        closeButton.setFocusPainted(false);
+        closeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        closeButton.setToolTipText("Close");
+        closeButton.addActionListener(e -> dispose());
+        formPanel.add(closeButton);
+
+        // Inner content panel for fields
+        JPanel contentPanel = new JPanel(new GridBagLayout());
+        contentPanel.setOpaque(false);
+        contentPanel.setBounds(0, 30, 400, 320);
+        formPanel.add(contentPanel);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(8, 10, 8, 10);
         gbc.anchor = GridBagConstraints.WEST;
-        gbc.gridx = 0; gbc.gridy = 0;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
 
         name = new JLabel("Name:");
         txtName = new JTextField(20);
-        formPanel.add(name, gbc);
+        contentPanel.add(name, gbc);
         gbc.gridx = 1;
-        formPanel.add(txtName, gbc);
+        contentPanel.add(txtName, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         password = new JLabel("Password:");
         txtPassword = new JPasswordField(20);
-        formPanel.add(password, gbc);
+        contentPanel.add(password, gbc);
         gbc.gridx = 1;
-        formPanel.add(txtPassword, gbc);
+        contentPanel.add(txtPassword, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         age = new JLabel("Age:");
         txtAge = new JTextField(20);
-        formPanel.add(age, gbc);
+        contentPanel.add(age, gbc);
         gbc.gridx = 1;
-        formPanel.add(txtAge, gbc);
+        contentPanel.add(txtAge, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         location = new JLabel("Location:");
         txtLocation = new JTextField(20);
-        formPanel.add(location, gbc);
+        contentPanel.add(location, gbc);
         gbc.gridx = 1;
-        formPanel.add(txtLocation, gbc);
+        contentPanel.add(txtLocation, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         phoneNumber = new JLabel("Phone Number:");
         txtPhoneNumber = new JTextField(20);
-        formPanel.add(phoneNumber, gbc);
+        contentPanel.add(phoneNumber, gbc);
         gbc.gridx = 1;
-        formPanel.add(txtPhoneNumber, gbc);
+        contentPanel.add(txtPhoneNumber, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         btnSignUp = new JButton("Sign Up");
@@ -108,10 +134,9 @@ public class SignUp extends JFrame implements ActionListener {
         btnSignUp.setPreferredSize(new Dimension(140, 40));
 
         btnSignUp.addActionListener(this);
-        formPanel.add(btnSignUp, gbc);
+        contentPanel.add(btnSignUp, gbc);
 
         backgroundPanel.add(formPanel);
-
         setContentPane(backgroundPanel);
         setVisible(true);
     }
@@ -148,7 +173,7 @@ public class SignUp extends JFrame implements ActionListener {
         }
     }
 
-    // Reusable background image panel
+    // Background panel class
     class BackgroundPanel extends JPanel {
         private Image backgroundImage;
 
