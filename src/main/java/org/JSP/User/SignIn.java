@@ -1,4 +1,7 @@
-package org.JSP;
+package org.JSP.User;
+
+import org.JSP.DBConnection;
+import org.JSP.WeatherPanel;
 
 import javax.swing.*;
 import java.awt.*;

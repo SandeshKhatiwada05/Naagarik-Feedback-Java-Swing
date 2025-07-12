@@ -1,5 +1,9 @@
 package org.JSP;
 
+import org.JSP.Admin.Admin;
+import org.JSP.User.SignIn;
+import org.JSP.User.SignUp;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class InitialPage extends JFrame implements ActionListener {
 
-    JButton signin, signup;
+    JButton signin, signup, adminButton;
 
     public InitialPage() {
         setTitle("Naagarik Feedback");
@@ -77,8 +81,20 @@ public class InitialPage extends JFrame implements ActionListener {
         loginPanel.setBounds(size.width / 2 - 150, size.height / 2 - 75, 300, 150);
         backgroundPanel.add(loginPanel);
 
+        // Admin Button just below loginPanel
+        adminButton = new JButton("I am an Admin");
+        adminButton.setBackground(new Color(25, 25, 112)); // Midnight Blue
+        adminButton.setForeground(Color.WHITE);
+        adminButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        adminButton.setFocusPainted(false);
+        adminButton.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 128), 2, true));
+        adminButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        adminButton.setBounds(size.width / 2 - 75, size.height / 2 + 90, 150, 40);
+        backgroundPanel.add(adminButton);
+
         signup.addActionListener(this);
         signin.addActionListener(this);
+        adminButton.addActionListener(this);
 
         setContentPane(backgroundPanel);
         setVisible(true);
@@ -90,6 +106,8 @@ public class InitialPage extends JFrame implements ActionListener {
             new SignIn();
         } else if (e.getSource() == signup) {
             new SignUp();
+        } else if (e.getSource() == adminButton) {
+            new Admin(); // Opens Admin window
         }
     }
 
