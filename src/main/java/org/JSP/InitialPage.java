@@ -1,6 +1,6 @@
 package org.JSP;
 
-import org.JSP.Admin.Admin;
+
 import org.JSP.User.SignIn;
 import org.JSP.User.SignUp;
 
@@ -107,7 +107,8 @@ public class InitialPage extends JFrame implements ActionListener {
         } else if (e.getSource() == signup) {
             new SignUp();
         } else if (e.getSource() == adminButton) {
-            new Admin(); // Opens Admin window
+            new org.JSP.Admin.AdminLoginDialog(this).setVisible(true); // Opens admin login popup
+
         }
     }
 
