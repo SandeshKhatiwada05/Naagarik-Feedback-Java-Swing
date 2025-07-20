@@ -46,3 +46,49 @@ Admins can view users, their feedback, and delete user data.
    ```bash
    git clone https://github.com/SandeshKhatiwada05/Naagarik-Feedback-Java-Swing.git
    cd Naagarik-Feedback-Java-Swing
+   ```
+## 🛠️ Setup MySQL Database
+
+- Create database: `naagarikfeedbackswing`
+- Create tables using the above schema
+- Update `DBConnection` class with your DB credentials
+
+---
+
+## 🏃‍♂️ Build & Run
+
+- Open project in IDE (**IntelliJ IDEA recommended**)
+- Build project and run:
+  - `org.JSP.User.SignUp` → to register users
+  - `org.JSP.Admin.AdminLoginDialog` → to login as admin
+
+---
+
+## 🧑‍💻 Usage
+
+- Users signup and submit feedback
+- Admin logs in to view users in a table
+- Click `+ View Feedbacks` to see user feedback in a popup
+- Right-click a user row and select **Delete User** to remove user and feedback
+
+---
+
+## ⚙️ Technologies
+
+- Java Swing GUI  
+- MySQL with JDBC  
+- Maven for dependency management
+
+---
+
+## 📬 Contact
+
+For questions or support, open GitHub issues or contact **Sandesh Khatiwada**:  
+[LinkedIn Profile](https://www.linkedin.com/in/sandesh-khatiwada-523b4626a/)
+
+---
+
+## 🔗 Repo
+
+[GitHub Repository](https://github.com/SandeshKhatiwada05/Naagarik-Feedback-Java-Swing)
+
