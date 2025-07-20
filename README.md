@@ -91,7 +91,8 @@ Admins can view users, their feedback, and delete user data.
 
 ## Contact
 
-For questions or support, open GitHub issues or contact Sandesh Khatiwada.
+For questions or support, open GitHub issues or contact Sandesh Khatiwada:  
+[LinkedIn Profile](https://www.linkedin.com/in/sandesh-khatiwada-523b4626a/)
 
 ---
 
