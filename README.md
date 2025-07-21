@@ -81,6 +81,10 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
+## Screenshots
+<img width="1918" height="1078" alt="initial page" src="https://github.com/user-attachments/assets/3d8d2dd0-f1ed-428a-baff-935a69e3fd6d" />
+
+
 ## 📬 Contact
 
 For questions or support, open GitHub issues or contact **Sandesh Khatiwada**:  
