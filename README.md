@@ -87,6 +87,8 @@ Admins can view users, their feedback, and delete user data.
 <img width="1910" height="1078" alt="User View" src="https://github.com/user-attachments/assets/05f7f4d2-60cb-447e-b0ec-80156d8211b6" />
 <img width="950" height="880" alt="admin login" src="https://github.com/user-attachments/assets/0d1c7b15-28dc-456f-b9d6-0cc8f5237fd2" />
 <img width="1917" height="1077" alt="admin view" src="https://github.com/user-attachments/assets/28a68163-edb7-4f32-9e1c-f0728c977b2c" />
+<img width="1246" height="746" alt="Specific view" src="https://github.com/user-attachments/assets/0394b49d-55de-4497-aad2-6262c3ab6af7" />
+
 
 
 
