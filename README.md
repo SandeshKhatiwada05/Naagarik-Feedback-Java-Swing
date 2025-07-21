@@ -90,9 +90,6 @@ Admins can view users, their feedback, and delete user data.
 <img width="1246" height="746" alt="Specific view" src="https://github.com/user-attachments/assets/0394b49d-55de-4497-aad2-6262c3ab6af7" />
 
 
-
-
-
 ---
 
 ## 📬 Contact
