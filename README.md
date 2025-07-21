@@ -83,7 +83,10 @@ Admins can view users, their feedback, and delete user data.
 
 ## Screenshots
 <img width="1918" height="1078" alt="initial page" src="https://github.com/user-attachments/assets/3d8d2dd0-f1ed-428a-baff-935a69e3fd6d" />
+<img width="777" height="780" alt="Signup" src="https://github.com/user-attachments/assets/dc79608a-6632-4624-b318-893d99f138d0" />
 
+
+---
 
 ## 📬 Contact
 
