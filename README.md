@@ -99,7 +99,4 @@ For questions or support, open GitHub issues or contact **Sandesh Khatiwada**:
 
 ---
 
-## 🔗 Repo
-
-[GitHub Repository](https://github.com/SandeshKhatiwada05/Naagarik-Feedback-Java-Swing)
 
