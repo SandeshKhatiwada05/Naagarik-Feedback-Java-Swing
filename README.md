@@ -2,7 +2,7 @@
 
 ---
 
-### Overview 👀
+### Overview 
 
 Naagarik Feedback is a desktop Java Swing application for collecting and managing user feedback.  
 Users can sign up with their details and submit feedback.  
