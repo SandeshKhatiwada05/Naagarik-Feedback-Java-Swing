@@ -21,7 +21,7 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
-### Database Schema 🗄️
+### Database Schema 
 
 **Table: people**  
 - id INT AUTO_INCREMENT PRIMARY KEY  
