@@ -10,7 +10,7 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
-### Features 🚀
+### Features 
 
 - User signup with Name, Age, Location, Phone, Password  
 - Weather display for selected cities ☀️🌧️  
