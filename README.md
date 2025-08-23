@@ -1,4 +1,4 @@
-## Naagarik Feedback - Java Swing Application 📝
+## Naagarik Feedback - Java Swing Application 
 
 ---
 
@@ -40,14 +40,14 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
-### Setup Instructions ⚙️
+### Setup Instructions 
 
 1. Clone repo:  
    ```bash
    git clone https://github.com/SandeshKhatiwada05/Naagarik-Feedback-Java-Swing.git
    cd Naagarik-Feedback-Java-Swing
    ```
-## 🛠️ Setup MySQL Database
+## Setup MySQL Database
 
 - Create database: `naagarikfeedbackswing`
 - Create tables using the above schema
@@ -55,7 +55,7 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
-## 🏃‍♂️ Build & Run
+## Build & Run
 
 - Open project in IDE (**IntelliJ IDEA recommended**)
 - Build project and run:
@@ -64,7 +64,7 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
-## 🧑‍💻 Usage
+## Usage
 
 - Users signup and submit feedback
 - Admin logs in to view users in a table
@@ -73,7 +73,7 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
-## ⚙️ Technologies
+## Technologies
 
 - Java Swing GUI  
 - MySQL with JDBC  
@@ -81,7 +81,7 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
-## 📷Screenshots
+## Screenshots
 <img width="1918" height="1078" alt="initial page" src="https://github.com/user-attachments/assets/3d8d2dd0-f1ed-428a-baff-935a69e3fd6d" />
 <img width="777" height="780" alt="Signup" src="https://github.com/user-attachments/assets/dc79608a-6632-4624-b318-893d99f138d0" />
 <img width="1910" height="1078" alt="User View" src="https://github.com/user-attachments/assets/05f7f4d2-60cb-447e-b0ec-80156d8211b6" />
@@ -92,7 +92,7 @@ Admins can view users, their feedback, and delete user data.
 
 ---
 
-## 📬 Contact
+## Contact
 
 For questions or support, open GitHub issues or contact **Sandesh Khatiwada**:  
 [LinkedIn Profile](https://www.linkedin.com/in/sandesh-khatiwada-523b4626a/)
